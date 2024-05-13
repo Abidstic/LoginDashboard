@@ -12,7 +12,8 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
+Create a project in google cloud and add the client id in app.js.Here:
+ > <GoogleOAuthProvider clientId={'google client-id'}>
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
