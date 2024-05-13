@@ -1,0 +1,24 @@
+{
+    "applicants": [
+        {
+            "name": "Fayez Hasan",
+            "image": "https://via.placeholder.com/50"
+        },
+        {
+            "name": "Shojib Ahmed",
+            "image": "https://via.placeholder.com/50"
+        },
+        {
+            "name": "Tamanna Islam",
+            "image": "https://via.placeholder.com/50"
+        },
+        {
+            "name": "Arshad Khan",
+            "image": "https://via.placeholder.com/50"
+        },
+        {
+            "name": "Abid Hasan",
+            "image": "https://via.placeholder.com/50"
+        }
+    ]
+}

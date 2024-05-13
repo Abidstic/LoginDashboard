@@ -1,0 +1,19 @@
+.dashed-divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashed-line {
+    flex-grow: 1;
+    width: 97.78px;
+    border-bottom: 0.96px solid #e6e6e6;
+    margin: 0 2px;
+}
+
+.divider-text {
+    font-weight: 400;
+    font-size: 13.44px;
+    color: #828282;
+    margin: 0 auto;
+}

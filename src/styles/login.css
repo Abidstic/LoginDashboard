@@ -1,0 +1,147 @@
+.login-container {
+    margin: 0 auto;
+    max-width: 400px;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.header {
+    padding-top: 92px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+.login-h {
+    text-align: center;
+    font-weight: 600;
+    font-size: 17.28px;
+    color: black;
+    margin-top: 68px;
+}
+.login-sub {
+    font-weight: 400;
+    font-size: 13.44px;
+    margin-top: 1.92px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15.08px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container form div {
+    margin-bottom: 13.98px;
+    font-size: 13.44px;
+    width: 313.92px;
+}
+
+.login-container form input {
+    font-weight: 400;
+    padding: 9.7px 15.36px;
+    border: 0.96px solid #e0e0e0;
+    border-radius: 7.68px;
+    color: #828282;
+    line-height: 18.82px;
+    font-size: 13.44px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-container form button {
+    padding: 9.7px auto;
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    width: 313.92px;
+    height: 38.4px;
+    border-radius: 7.68px;
+    margin-top: 15.36px;
+}
+
+.google-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 23.04px;
+}
+
+.google-login button {
+    padding: 9.6px auto;
+    background-color: #eeeeee;
+    color: black;
+    border: none;
+    cursor: pointer;
+    margin-top: 23.04px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 13.44px;
+    font-weight: 500;
+    width: 313.92px;
+    height: 38.4px;
+    border-radius: 7.68px;
+}
+.google-login img {
+    height: 19.2px;
+    width: 19.2px;
+    margin-right: 7.68px;
+}
+.footer {
+    margin-top: 23.04px;
+    font-weight: 400;
+    font-size: 11.52px;
+    color: #828282;
+}
+.footer span {
+    color: black;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+@media (max-width: 375px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-container form div {
+        width: 100%;
+    }
+
+    .login-container form input,
+    .login-container form button,
+    .google-login button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .login-h {
+        font-size: 16px;
+    }
+
+    .login-sub {
+        font-size: 12px;
+    }
+
+    .login-container form input,
+    .google-login button {
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+}
