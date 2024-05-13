@@ -1,15 +1,72 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 import Divider from './divider.js';
 import googleIcon from '../assets/google.png';
+import { useGoogleLogin } from '@react-oauth/google';
 
-function Login({ onLogin, error }) {
+function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onLogin(username, password);
+        handleLogin();
+    };
+    const login = useGoogleLogin({
+        onSuccess: (tokenResponse) => {
+            console.log('Login Successful');
+            // Set values in local storage
+            localStorage.setItem('token', tokenResponse.access_token);
+
+            // Navigate to the dashboard or perform any other actions
+            navigate('/dashboard');
+        },
+        onError: (error) => {
+            console.log('Login Failed:', error);
+            setError(error);
+        },
+    });
+
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('https://dummyjson.com/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    expiresInMins: 30,
+                }),
+            });
+            const data = await response.json();
+
+            if (data.id) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('id', data.id);
+                console.log('Login Successful');
+                navigate('/dashboard');
+            } else {
+                // Failed login
+                const errorData = await response.json();
+                console.log(response);
+                setError(errorData.message);
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            setError('An error occurred during login.');
+        }
+    };
+    const handleUsernameFocus = () => {
+        setError('');
+    };
+
+    const handlePasswordFocus = () => {
+        setError('');
     };
 
     return (
@@ -28,6 +85,7 @@ function Login({ onLogin, error }) {
                         value={username}
                         placeholder="Username"
                         onChange={(e) => setUsername(e.target.value)}
+                        onFocus={handleUsernameFocus}
                     />
                 </div>
                 <div>
@@ -37,13 +95,14 @@ function Login({ onLogin, error }) {
                         value={password}
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
+                        onFocus={handlePasswordFocus}
                     />
                 </div>
                 <button type="submit">Login</button>
             </form>
             <div className="google-login">
                 <Divider text={'or continue with'} />
-                <button>
+                <button onClick={() => login()}>
                     <img src={googleIcon} alt="icon" />
                     Google
                 </button>
